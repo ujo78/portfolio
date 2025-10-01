@@ -1,0 +1,41 @@
+__  __  __
+\ \ \ \ \/
+ \ \/\ \
+  \/  \/
+
+The humans.txt file explains the team, technology,
+and graphic assets behind this site humanstxt.org.
+
+_______________________________________________________________________________
+
+SOFTWARE ENGINEER | ソフトウェアエンジニア
+
+Rakshit Raj
+Full-stack development & software engineering
+
+Development tools:
+Python
+Java
+JavaScript
+Android Studio
+VS Code
+
+linkedin.com/in/rakshit-raj-gupta-b56498278
+github.com/ujo78
+
+_______________________________________________________________________________
+
+TECHNOLOGY | テクノロジー
+
+React
+Remix
+Three.js
+Framer Motion
+
+_______________________________________________________________________________
+
+FONTS | フォント
+
+Gotham
+IPA Gothic Regular
+Hiragino Kaku Gothic W8
