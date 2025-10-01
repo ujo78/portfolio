@@ -3,7 +3,7 @@
 </p>
 <h1 align="center">Personal portfolio</h1>
 
-[![Site preview](/public/site-preview.png)](https://rakshitraj.dev)
+[![Site preview](/public/image_2025-10-01_165323776.png)](https://rakshitraj.dev)
 
 My software engineering portfolio to showcase projects and skills. Built with [Remix](https://remix.run/), [Three.js](https://threejs.org/), and [Framer Motion](https://www.framer.com/motion/). View the [live site](https://rakshitraj.dev).
 
