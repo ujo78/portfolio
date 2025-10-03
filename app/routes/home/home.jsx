@@ -4,9 +4,9 @@ import gamestackTexture2 from '~/assets/gamestack-list.jpg';
 import gamestackTextureLarge from '~/assets/gamestack-login-large.jpg';
 import gamestackTexturePlaceholder from '~/assets/gamestack-login-placeholder.jpg';
 import gamestackTexture from '~/assets/gamestack-login.jpg';
-import sliceTextureLarge from '~/assets/slice-app-large.jpg';
-import sliceTexturePlaceholder from '~/assets/slice-app-placeholder.jpg';
-import sliceTexture from '~/assets/slice-app.jpg';
+import trafficTwinTextureLarge from '~/assets/traffic-twin-main-large.jpg';
+import trafficTwinTexturePlaceholder from '~/assets/traffic-twin-main-placeholder.jpg';
+import trafficTwinTexture from '~/assets/traffic-twin-main.jpg';
 import sprTextureLarge from '~/assets/spr-lesson-builder-dark-large.jpg';
 import sprTexturePlaceholder from '~/assets/spr-lesson-builder-dark-placeholder.jpg';
 import sprTexture from '~/assets/spr-lesson-builder-dark.jpg';
@@ -148,17 +148,17 @@ export const Home = () => {
         sectionRef={projectThree}
         visible={visibleSections.includes(projectThree.current)}
         index={3}
-        title="Biomedical image collaboration"
-        description="Increasing the amount of collaboration in Slice, an app for biomedical imaging"
+        title="Indian Traffic Digital Twin"
+        description="A comprehensive 3D traffic simulation platform designed specifically for Indian road conditions, vehicle types, and driving behaviors"
         buttonText="View project"
-        buttonLink="/"
+        buttonLink="/projects/indian-traffic-twin"
         model={{
           type: 'laptop',
-          alt: 'Annotating a biomedical image in the Slice app',
+          alt: 'Indian Traffic Digital Twin showing 3D traffic simulation with mixed vehicle types',
           textures: [
             {
-              srcSet: `${sliceTexture} 800w, ${sliceTextureLarge} 1920w`,
-              placeholder: sliceTexturePlaceholder,
+              srcSet: `${trafficTwinTexture} 800w, ${trafficTwinTextureLarge} 1920w`,
+              placeholder: trafficTwinTexturePlaceholder,
             },
           ],
         }}

@@ -1,0 +1,1 @@
+export { IndianTrafficTwin as default, meta } from './indian-traffic-twin';

@@ -1,0 +1,696 @@
+/* Indian Traffic Twin Project Styles */
+
+/* Responsive grid layouts for simulation screenshots */
+.simulationGrid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+  gap: var(--spaceXL);
+  margin-top: var(--spaceXL);
+  align-items: start;
+
+  @media (--mediaTablet) {
+    grid-template-columns: 1fr;
+    gap: var(--spaceL);
+    margin-top: var(--spaceL);
+  }
+
+  @media (--mediaMobile) {
+    gap: var(--spaceM);
+    margin-top: var(--spaceM);
+  }
+}
+
+/* Vehicle statistics and analytics displays */
+.vehicleStats {
+  display: flex;
+  flex-direction: column;
+  gap: var(--spaceM);
+  padding: var(--spaceL);
+  background: var(--backgroundLight);
+  border-radius: var(--borderRadius);
+  border: 1px solid var(--divider);
+  transition: all var(--durationM) var(--bezierFastoutSlowin);
+
+  &:hover {
+    transform: translateY(-2px);
+    box-shadow: var(--shadowL);
+    border-color: var(--primary);
+  }
+
+  @media (--mediaTablet) {
+    padding: var(--spaceM);
+  }
+
+  @media (--mediaMobile) {
+    padding: var(--spaceS);
+  }
+}
+
+.statItem {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: var(--spaceS) var(--spaceM);
+  background: var(--background);
+  border-radius: var(--borderRadius);
+  border: 1px solid transparent;
+  transition: all var(--durationS) var(--bezierFastoutSlowin);
+  cursor: pointer;
+
+  &:hover {
+    background: var(--backgroundElevated);
+    border-color: var(--primary);
+    transform: translateX(4px);
+  }
+
+  @media (--mediaMobile) {
+    padding: var(--spaceXS) var(--spaceS);
+    flex-direction: column;
+    align-items: flex-start;
+    gap: var(--spaceXS);
+  }
+}
+
+.statLabel {
+  font-size: var(--fontSizeBodyS);
+  color: var(--textLight);
+  font-weight: var(--fontWeightMedium);
+}
+
+.statValue {
+  font-size: var(--fontSizeBodyM);
+  color: var(--primary);
+  font-weight: var(--fontWeightBold);
+  font-variant-numeric: tabular-nums;
+}
+
+/* Analytics display with hover effects */
+.analyticsDisplay {
+  position: relative;
+  overflow: hidden;
+  border-radius: var(--borderRadius);
+  background: var(--backgroundLight);
+  transition: all var(--durationM) var(--bezierFastoutSlowin);
+
+  &:hover {
+    transform: scale(1.02);
+    box-shadow: var(--shadowXL);
+  }
+
+  &::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(
+      90deg,
+      transparent,
+      rgba(255, 255, 255, 0.1),
+      transparent
+    );
+    transition: left var(--durationL) var(--bezierFastoutSlowin);
+  }
+
+  &:hover::before {
+    left: 100%;
+  }
+}
+
+.trafficFlow {
+  position: relative;
+  background: linear-gradient(135deg, var(--primary) 0%, var(--accent) 100%);
+  padding: var(--spaceL);
+  border-radius: var(--borderRadius);
+  color: var(--textTitle);
+  overflow: hidden;
+
+  &::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    right: 0;
+    width: 100px;
+    height: 100px;
+    background: radial-gradient(circle, rgba(255, 255, 255, 0.1) 0%, transparent 70%);
+    border-radius: 50%;
+    transform: translate(30px, -30px);
+  }
+
+  @media (--mediaTablet) {
+    padding: var(--spaceM);
+  }
+
+  @media (--mediaMobile) {
+    padding: var(--spaceS);
+  }
+}
+
+/* Performance metrics grid */
+.performanceMetrics {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: var(--spaceM);
+  margin-top: var(--spaceL);
+
+  @media (--mediaTablet) {
+    grid-template-columns: repeat(2, 1fr);
+    gap: var(--spaceS);
+  }
+
+  @media (--mediaMobile) {
+    grid-template-columns: 1fr;
+    gap: var(--spaceS);
+  }
+}
+
+.metric {
+  text-align: center;
+  padding: var(--spaceM);
+  background: var(--backgroundLight);
+  border-radius: var(--borderRadius);
+  border: 1px solid var(--divider);
+  transition: all var(--durationM) var(--bezierFastoutSlowin);
+  position: relative;
+  overflow: hidden;
+
+  &:hover {
+    transform: translateY(-4px);
+    box-shadow: var(--shadowL);
+    border-color: var(--primary);
+  }
+
+  &::before {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 3px;
+    background: linear-gradient(90deg, var(--primary), var(--accent));
+    transform: scaleX(0);
+    transform-origin: left;
+    transition: transform var(--durationM) var(--bezierFastoutSlowin);
+  }
+
+  &:hover::before {
+    transform: scaleX(1);
+  }
+
+  @media (--mediaTablet) {
+    padding: var(--spaceS);
+  }
+}
+
+.metricValue {
+  font-size: var(--fontSizeH3);
+  font-weight: var(--fontWeightBold);
+  color: var(--primary);
+  margin-bottom: var(--spaceXS);
+  font-variant-numeric: tabular-nums;
+  transition: color var(--durationS) ease;
+
+  .metric:hover & {
+    color: var(--accent);
+  }
+
+  @media (--mediaTablet) {
+    font-size: var(--fontSizeH4);
+  }
+
+  @media (--mediaMobile) {
+    font-size: var(--fontSizeBodyL);
+  }
+}
+
+.metricLabel {
+  font-size: var(--fontSizeBodyS);
+  color: var(--textLight);
+  font-weight: var(--fontWeightMedium);
+  line-height: var(--lineHeightBody);
+
+  @media (--mediaMobile) {
+    font-size: var(--fontSizeBodyXS);
+  }
+}
+
+/* Scenario demonstration grid */
+.scenarioGrid {
+  display: flex;
+  flex-direction: column;
+  gap: var(--spaceXL);
+  position: relative;
+
+  @media (--mediaTablet) {
+    gap: var(--spaceL);
+  }
+
+  @media (--mediaMobile) {
+    gap: var(--spaceM);
+  }
+}
+
+/* Interactive elements and transitions */
+.interactiveElement {
+  transition: all var(--durationM) var(--bezierFastoutSlowin);
+  cursor: pointer;
+
+  &:hover {
+    transform: translateY(-2px);
+  }
+
+  &:active {
+    transform: translateY(0);
+  }
+}
+
+/* Image hover effects */
+.imageContainer {
+  position: relative;
+  overflow: hidden;
+  border-radius: var(--borderRadius);
+  transition: all var(--durationM) var(--bezierFastoutSlowin);
+
+  &:hover {
+    transform: scale(1.02);
+    box-shadow: var(--shadowXL);
+  }
+
+  &::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: linear-gradient(
+      45deg,
+      transparent 30%,
+      rgba(255, 255, 255, 0.1) 50%,
+      transparent 70%
+    );
+    opacity: 0;
+    transition: opacity var(--durationM) var(--bezierFastoutSlowin);
+  }
+
+  &:hover::after {
+    opacity: 1;
+  }
+}
+
+/* Simulation showcase specific styles */
+.simulationShowcase {
+  position: relative;
+  background: var(--backgroundElevated);
+  border-radius: var(--borderRadius);
+  padding: var(--spaceL);
+  border: 1px solid var(--divider);
+  transition: all var(--durationM) var(--bezierFastoutSlowin);
+
+  &:hover {
+    border-color: var(--primary);
+    box-shadow: var(--shadowL);
+  }
+
+  @media (--mediaTablet) {
+    padding: var(--spaceM);
+  }
+
+  @media (--mediaMobile) {
+    padding: var(--spaceS);
+  }
+}
+
+/* MATLAB integration highlight */
+.matlabIntegration {
+  position: relative;
+  background: linear-gradient(135deg, var(--backgroundLight) 0%, var(--backgroundElevated) 100%);
+  border-radius: var(--borderRadius);
+  padding: var(--spaceXL);
+  border: 2px solid var(--primary);
+  overflow: hidden;
+
+  &::before {
+    content: '';
+    position: absolute;
+    top: -50%;
+    right: -50%;
+    width: 100%;
+    height: 100%;
+    background: radial-gradient(circle, var(--primary) 0%, transparent 70%);
+    opacity: 0.05;
+    animation: pulse 4s ease-in-out infinite;
+  }
+
+  @media (--mediaTablet) {
+    padding: var(--spaceL);
+  }
+
+  @media (--mediaMobile) {
+    padding: var(--spaceM);
+  }
+}
+
+@keyframes pulse {
+  0%, 100% {
+    transform: scale(1);
+    opacity: 0.05;
+  }
+  50% {
+    transform: scale(1.1);
+    opacity: 0.1;
+  }
+}
+
+/* Results section styling */
+.resultsSection {
+  background: var(--backgroundLight);
+  border-radius: var(--borderRadius);
+  padding: var(--spaceXL);
+  border-left: 4px solid var(--accent);
+  position: relative;
+
+  &::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    right: 0;
+    width: 60px;
+    height: 60px;
+    background: var(--accent);
+    opacity: 0.1;
+    border-radius: 50%;
+    transform: translate(20px, -20px);
+  }
+
+  @media (--mediaTablet) {
+    padding: var(--spaceL);
+  }
+
+  @media (--mediaMobile) {
+    padding: var(--spaceM);
+  }
+}
+
+/* Accessibility and keyboard navigation */
+.focusable {
+  &:focus {
+    outline: 2px solid var(--primary);
+    outline-offset: 2px;
+  }
+
+  &:focus:not(:focus-visible) {
+    outline: none;
+  }
+}
+
+/* Loading states */
+.loading {
+  opacity: 0.6;
+  pointer-events: none;
+  position: relative;
+
+  &::after {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 20px;
+    height: 20px;
+    border: 2px solid var(--primary);
+    border-top: 2px solid transparent;
+    border-radius: 50%;
+    animation: spin 1s linear infinite;
+    transform: translate(-50%, -50%);
+  }
+}
+
+@keyframes spin {
+  0% {
+    transform: translate(-50%, -50%) rotate(0deg);
+  }
+  100% {
+    transform: translate(-50%, -50%) rotate(360deg);
+  }
+}
+
+/* Additional responsive design optimizations */
+
+/* Enhanced mobile layouts */
+@media (--mediaMobileS) {
+  .simulationGrid {
+    grid-template-columns: 1fr;
+    gap: var(--spaceS);
+    margin-top: var(--spaceS);
+  }
+
+  .vehicleStats {
+    padding: var(--spaceS);
+    gap: var(--spaceS);
+  }
+
+  .statItem {
+    padding: var(--spaceXS);
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 2px;
+  }
+
+  .performanceMetrics {
+    grid-template-columns: 1fr;
+    gap: var(--spaceXS);
+  }
+
+  .metric {
+    padding: var(--spaceS);
+  }
+
+  .metricValue {
+    font-size: var(--fontSizeBodyM);
+  }
+
+  .metricLabel {
+    font-size: var(--fontSizeBodyXS);
+  }
+}
+
+/* Tablet landscape optimizations */
+@media (--mediaTablet) and (orientation: landscape) {
+  .simulationGrid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: var(--spaceL);
+  }
+
+  .performanceMetrics {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+/* Large desktop optimizations */
+@media (--mediaDesktop) {
+  .simulationGrid {
+    grid-template-columns: repeat(3, 1fr);
+    gap: var(--space2XL);
+  }
+
+  .performanceMetrics {
+    grid-template-columns: repeat(4, 1fr);
+    gap: var(--spaceL);
+  }
+
+  .vehicleStats {
+    padding: var(--spaceXL);
+  }
+
+  .metric {
+    padding: var(--spaceL);
+  }
+}
+
+/* Image sizing optimizations */
+.responsiveImage {
+  width: 100%;
+  height: auto;
+  max-width: 100%;
+  object-fit: cover;
+  border-radius: var(--borderRadius);
+
+  @media (--mediaTablet) {
+    max-height: 60vh;
+    object-fit: contain;
+  }
+
+  @media (--mediaMobile) {
+    max-height: 50vh;
+  }
+
+  @media (--mediaMobileS) {
+    max-height: 40vh;
+  }
+}
+
+/* Container width optimizations */
+.contentContainer {
+  width: 100%;
+  max-width: var(--maxWidthL);
+  margin: 0 auto;
+  padding: 0 var(--spaceOuter);
+
+  @media (--mediaTablet) {
+    padding: 0 var(--spaceM);
+  }
+
+  @media (--mediaMobile) {
+    padding: 0 var(--spaceS);
+  }
+
+  @media (--mediaMobileS) {
+    padding: 0 var(--spaceXS);
+  }
+}
+
+/* Text scaling for different screen sizes */
+.responsiveText {
+  @media (--mediaTablet) {
+    font-size: 0.9em;
+    line-height: 1.5;
+  }
+
+  @media (--mediaMobile) {
+    font-size: 0.85em;
+    line-height: 1.6;
+  }
+
+  @media (--mediaMobileS) {
+    font-size: 0.8em;
+    line-height: 1.7;
+  }
+}
+
+/* Touch-friendly interactive elements */
+@media (--mediaTouch) {
+  .statItem,
+  .metric,
+  .interactiveElement {
+    min-height: 44px; /* Minimum touch target size */
+    padding: var(--spaceS) var(--spaceM);
+  }
+
+  .statItem:hover,
+  .metric:hover,
+  .interactiveElement:hover {
+    transform: none; /* Disable hover transforms on touch devices */
+  }
+
+  .statItem:active,
+  .metric:active,
+  .interactiveElement:active {
+    background: var(--backgroundElevated);
+    transform: scale(0.98);
+  }
+}
+
+/* High contrast mode support */
+@media (prefers-contrast: high) {
+  .vehicleStats,
+  .metric,
+  .simulationShowcase {
+    border-width: 2px;
+    border-color: var(--textTitle);
+  }
+
+  .statItem:hover,
+  .metric:hover {
+    border-color: var(--primary);
+    background: var(--backgroundElevated);
+  }
+}
+
+/* Reduced motion preferences */
+@media (--mediaReduceMotion) {
+  .vehicleStats,
+  .analyticsDisplay,
+  .metric,
+  .imageContainer,
+  .interactiveElement {
+    transition: none;
+    transform: none;
+  }
+
+  .vehicleStats:hover,
+  .analyticsDisplay:hover,
+  .metric:hover,
+  .imageContainer:hover,
+  .interactiveElement:hover {
+    transform: none;
+  }
+
+  .loading::after,
+  .matlabIntegration::before {
+    animation: none;
+  }
+}
+
+/* Print styles */
+@media print {
+  .simulationGrid,
+  .performanceMetrics,
+  .scenarioGrid {
+    display: block;
+  }
+
+  .vehicleStats,
+  .metric,
+  .simulationShowcase {
+    break-inside: avoid;
+    margin-bottom: var(--spaceM);
+    box-shadow: none;
+    border: 1px solid #000;
+  }
+
+  .interactiveElement:hover,
+  .metric:hover,
+  .statItem:hover {
+    transform: none;
+    box-shadow: none;
+  }
+}
+
+/* Focus management for keyboard navigation */
+.skipLink {
+  position: absolute;
+  top: -40px;
+  left: 6px;
+  background: var(--primary);
+  color: var(--textTitle);
+  padding: 8px;
+  text-decoration: none;
+  border-radius: var(--borderRadius);
+  z-index: var(--zIndex5);
+  transition: top var(--durationS) ease;
+
+  &:focus {
+    top: 6px;
+  }
+}
+
+/* Improved focus indicators */
+.focusable:focus-visible {
+  outline: 3px solid var(--primary);
+  outline-offset: 2px;
+  border-radius: var(--borderRadius);
+}
+
+/* Screen reader optimizations */
+.srOnly {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border: 0;
+}
