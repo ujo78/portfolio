@@ -1,0 +1,5 @@
+# This is a placeholder for the low-quality placeholder image
+# In actual implementation, this would be a small, blurred JPG for progressive loading
+# - Low resolution version of the main simulation screenshot
+# - Used for initial page load before full image loads
+# - Optimized for fast loading and smooth transitions

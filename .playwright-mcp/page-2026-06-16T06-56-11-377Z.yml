@@ -1,0 +1,87 @@
+- generic [active] [ref=e1]:
+  - link "Skip to main content" [ref=e2] [cursor=pointer]:
+    - /url: "#main-content"
+  - banner [ref=e3]:
+    - link "Rakshit Raj, Software Engineer" [ref=e4] [cursor=pointer]:
+      - /url: /
+      - img [ref=e5]
+    - button "Menu" [ref=e7] [cursor=pointer]:
+      - generic:
+        - generic:
+          - img [ref=e8]
+          - img [ref=e10]
+  - main [ref=e12]:
+    - article [ref=e13]:
+      - generic [ref=e20]:
+        - generic [ref=e21]:
+          - heading "WorkflowOS" [level=1] [ref=e22]
+          - paragraph [ref=e23]: An AI agent swarm that transforms meeting transcripts into prioritised backlogs, risk heatmaps, and executable roadmaps — deployed end-to-end on Azure.
+          - link "Visit website" [ref=e24] [cursor=pointer]:
+            - /url: https://workflowos-seven.vercel.app
+            - img [ref=e25]
+            - generic [ref=e27]: Visit website
+        - list [ref=e28]:
+          - listitem [ref=e29]: AI Systems Architecture
+          - listitem [ref=e30]: Multi-Agent Orchestration
+          - listitem [ref=e31]: Cloud Infrastructure
+          - listitem [ref=e32]: Full-Stack Development
+      - img "WorkflowOS execution dashboard showing swarm agent logs" [ref=e39]
+      - generic [ref=e42]:
+        - heading "The Problem" [level=2] [ref=e43]
+        - paragraph [ref=e44]: Meeting notes are unstructured. Critical decisions get lost in the audio. Actionable items are scattered across transcripts and chat logs. Teams waste time extracting insights from hours of recordings when they should be shipping.
+      - generic [ref=e47]:
+        - heading "Agent Swarm Architecture" [level=2] [ref=e48]
+        - paragraph [ref=e49]: "WorkflowOS deploys a fleet of specialized agents that work in parallel:"
+      - generic [ref=e52]:
+        - paragraph [ref=e53]:
+          - strong [ref=e54]: Data Analyst Agent
+          - text: "— Extracts structured data: attendees, decisions, action items, blockers. Cleans noisy transcripts."
+        - paragraph [ref=e55]:
+          - strong [ref=e56]: Strategist Agent
+          - text: — Identifies opportunities, dependencies, and roadmap implications from decisions. Market-aware planning.
+        - paragraph [ref=e57]:
+          - strong [ref=e58]: Security Audit Agent
+          - text: — Flags compliance risks, credential leaks, governance issues. Cross-project constraint checking.
+        - paragraph [ref=e59]:
+          - strong [ref=e60]: Copywriter Agent
+          - text: — Crafts polished, actionable narratives from raw data. Executive-ready summaries.
+        - paragraph [ref=e61]:
+          - strong [ref=e62]: Reporter Agent
+          - text: — Synthesises all findings and generates the final execution plan with priority ranking and timeline.
+      - generic [ref=e65]:
+        - heading "Technical Stack" [level=2] [ref=e66]
+        - paragraph [ref=e67]:
+          - strong [ref=e68]: "Backend:"
+          - text: Python FastAPI running on Azure Web Apps with Azure OpenAI LLM inference (GPT-4). Parallel asyncio orchestration with task queuing.
+        - paragraph [ref=e69]:
+          - strong [ref=e70]: "Frontend:"
+          - text: Next.js 14 deployed on Vercel. Real-time execution dashboard using Server-Sent Events (SSE) for live agent logs.
+        - paragraph [ref=e71]:
+          - strong [ref=e72]: "Infrastructure:"
+          - text: GitHub Actions CI/CD pipelines. Container-ready deployment. Cross-meeting memory for context retention and dependency tracking.
+      - generic [ref=e78]:
+        - img "Dependency graph and risk heatmap visualization" [ref=e79]
+        - img
+      - generic [ref=e82]:
+        - heading "The Execution Dashboard" [level=2] [ref=e83]
+        - paragraph [ref=e84]: "Paste a meeting transcript (Zoom, Teams, manual notes). The swarm dissects it in parallel. Within seconds, view:"
+      - generic [ref=e87]:
+        - paragraph [ref=e88]:
+          - strong [ref=e89]: Executive Summary
+          - text: — Top-line decisions, outcomes, and key risks
+        - paragraph [ref=e90]:
+          - strong [ref=e91]: Dependency Graph
+          - text: — Visual map of task dependencies and blockers
+        - paragraph [ref=e92]:
+          - strong [ref=e93]: Risk Heatmap
+          - text: — Colour-coded risk assessment per assignee and domain
+        - paragraph [ref=e94]:
+          - strong [ref=e95]: Operational Timeline
+          - text: — Prioritised task list with deadlines and ownership
+      - generic [ref=e98]:
+        - heading "Results & Impact" [level=2] [ref=e99]
+        - paragraph [ref=e100]: Deployed and live at workflowos-seven.vercel.app. Handles real meeting loads with sub-second transcript ingestion. Cross-meeting memory prevents duplicate work and surfaces emerging patterns. Teams see structured, actionable output instead of raw meeting notes.
+    - generic [ref=e102]:
+      - generic [ref=e103]: © 2026 Rakshit Raj.
+      - link "Crafted by yours truly" [ref=e104] [cursor=pointer]:
+        - /url: /humans.txt

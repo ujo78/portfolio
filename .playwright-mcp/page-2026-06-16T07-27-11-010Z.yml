@@ -1,0 +1,115 @@
+- generic [active] [ref=e1]:
+  - link "Skip to main content" [ref=e2] [cursor=pointer]:
+    - /url: "#main-content"
+  - banner [ref=e3]:
+    - link "Rakshit Raj, Software Engineer" [ref=e4] [cursor=pointer]:
+      - /url: /
+      - img [ref=e5]
+    - button "Menu" [ref=e7] [cursor=pointer]:
+      - generic:
+        - generic:
+          - img [ref=e8]
+          - img [ref=e10]
+  - main [ref=e12]:
+    - article [ref=e13]:
+      - generic [ref=e17]:
+        - img
+      - generic [ref=e20]:
+        - generic [ref=e21]:
+          - heading "AI Memory Vault" [level=1] [ref=e22]
+          - paragraph [ref=e23]: A unified Obsidian-based memory architecture that synchronises rules, context, and project knowledge across every AI coding agent on the machine via MCP.
+        - list [ref=e24]:
+          - listitem [ref=e25]: AI Systems Design
+          - listitem [ref=e26]: Developer Tooling
+          - listitem [ref=e27]: Knowledge Architecture
+          - listitem [ref=e28]: Automation
+      - generic [ref=e34]:
+        - img "AI Memory Vault knowledge graph visualization" [ref=e35]
+        - img
+      - generic [ref=e38]:
+        - heading "The Problem" [level=2] [ref=e39]
+        - paragraph [ref=e40]: "You use 7 different AI coding agents: Claude Code, Cursor, Windsurf, Gemini, GitHub Copilot, Kiro, and Antigravity. Each has isolated memory. Rules, project context, and hard-won lessons live in separate silos. You repeat explanations across tools. Context is lost between sessions. Knowledge doesn't compound."
+      - generic [ref=e44]:
+        - 'heading "The Solution: Unified Memory" [level=2] [ref=e45]'
+        - paragraph [ref=e46]: A single Obsidian vault fed by a Node.js sync engine. All agents read from this source of truth. Rules propagate outward. Memory flows back inward. Sessions are exported as readable markdown. Every agent stays in sync.
+      - generic [ref=e49]:
+        - paragraph [ref=e50]:
+          - strong [ref=e51]: "Rules Flow Outward:"
+          - text: Edit AGENTS.md once in the vault. Run sync-memory.mjs. The script propagates rules to Claude Code (~/.claude/CLAUDE.md), Cursor (~/.cursor/rules/), Windsurf (~/.windsurf/memories/), Gemini, Copilot, and Kiro automatically.
+        - paragraph [ref=e52]:
+          - strong [ref=e53]: "Memory Flows Back Inward:"
+          - text: When an agent writes to its local memory directory, directory junctions instantly mirror changes into the vault. No manual sync needed.
+        - paragraph [ref=e54]:
+          - strong [ref=e55]: "Sessions Exported:"
+          - text: Chat transcripts (.jsonl) are converted to readable markdown and organized by project in sessions/. Searchable, citable, permanent.
+        - paragraph [ref=e56]:
+          - strong [ref=e57]: "Live MCP Access:"
+          - text: All MCP-capable agents (Claude, Cursor, Windsurf, Gemini, Antigravity) access the vault live via Obsidian's Local REST API. Real-time reads and writes.
+      - generic [ref=e63]:
+        - img "AI Memory architecture diagram showing sync flows and agent integrations" [ref=e64]
+        - img
+      - generic [ref=e67]:
+        - heading "Architecture" [level=2] [ref=e68]
+        - paragraph [ref=e69]:
+          - strong [ref=e70]: "Vault Root:"
+          - text: ~/AI-Memory — the single source of truth. Organized by rules (global + language/domain-scoped), memory (cross-project facts), projects (per-project context), and sessions (exported transcripts).
+        - paragraph [ref=e71]:
+          - strong [ref=e72]: "Sync Engine:"
+          - text: sync-memory.mjs runs on demand or in --watch mode. It reads rules from the vault and writes to all 7 agent config locations. Supports --project and --dry-run flags for safety.
+        - paragraph [ref=e73]:
+          - strong [ref=e74]: "Directory Junctions:"
+          - text: Project memory at ~/.claude/projects/*/memory/ appears in the vault via Windows directory junctions. Bidirectional sync at the filesystem level.
+        - paragraph [ref=e75]:
+          - strong [ref=e76]: "MCP Server:"
+          - text: Obsidian Local REST API (port 27123 HTTP, 27124 HTTPS). Agents authenticate with API key and read/write markdown files live. No file watcher needed.
+      - generic [ref=e79]:
+        - paragraph [ref=e80]:
+          - strong [ref=e81]: Global Rules (AGENTS.md)
+          - text: — Edit once, syncs to all agents. Includes TypeScript conventions, Azure deployment rules, and universal coding practices.
+        - paragraph [ref=e82]:
+          - strong [ref=e83]: Scoped Rules (languages/, domains/)
+          - text: — Language-specific (TypeScript, Python) and domain-specific (Azure, Kubernetes) rules. Appended by the sync script.
+        - paragraph [ref=e84]:
+          - strong [ref=e85]: Project Memory
+          - text: — User profile, feedback, project context, and references. Lives in projects/*/memory/. Junctioned for instant bidirectional sync.
+        - paragraph [ref=e86]:
+          - strong [ref=e87]: Session Exports
+          - text: — Chat transcripts converted to markdown with INDEX.md dashboard. Organized by project and date. Fully searchable in Obsidian.
+      - generic [ref=e90]:
+        - heading "Key Features" [level=2] [ref=e91]
+        - paragraph [ref=e92]:
+          - strong [ref=e93]: "Multi-Agent Sync:"
+          - text: All 7 agents read the same rules. No conflicts, no stale data.
+        - paragraph [ref=e94]:
+          - strong [ref=e95]: "Bidirectional Memory Flow:"
+          - text: Agents write local memory → junctions mirror to vault. Vault edits → agents see changes instantly.
+        - paragraph [ref=e96]:
+          - strong [ref=e97]: "Session Preservation:"
+          - text: All chat transcripts exported to readable markdown. Build a searchable knowledge base over time.
+        - paragraph [ref=e98]:
+          - strong [ref=e99]: "Watch Mode:"
+          - text: Run sync-memory.mjs --watch and changes propagate immediately. Development and deployment integrated.
+        - paragraph [ref=e100]:
+          - strong [ref=e101]: "Per-Project Isolation:"
+          - text: Each project has its own memory directory. Rules are global; context is local. Best of both worlds.
+      - generic [ref=e104]:
+        - heading "Implementation Details" [level=2] [ref=e105]
+        - paragraph [ref=e106]:
+          - strong [ref=e107]: "Scripts:"
+          - text: sync-memory.mjs (sync rules), link-claude-project.ps1 (migrate memory), register-mcp.mjs (wire up Obsidian MCP), export-sessions.mjs (convert transcripts).
+        - paragraph [ref=e108]:
+          - strong [ref=e109]: "Agent Integrations:"
+          - text: Claude Code reads ~/.claude/CLAUDE.md via @import. Cursor uses ~/.cursor/rules/. Windsurf reads ~/.windsurf/memories/. Gemini, Copilot, Kiro, Antigravity each have dedicated rule files.
+        - paragraph [ref=e110]:
+          - strong [ref=e111]: "Runtime:"
+          - text: Node.js 18+. Uses file system APIs for junctions (Windows) and POSIX symlinks (Mac/Linux). No external database needed.
+      - generic [ref=e114]:
+        - heading "Results" [level=2] [ref=e115]
+        - paragraph [ref=e116]: ✅ Vault live with 9 exported sessions and 3 projects fully migrated. ✅ All agents connected via MCP and receiving synced rules. ✅ Rules propagate in seconds. ✅ Project memory mirrors bidirectionally. ✅ Sessions searchable in Obsidian. ✅ No vendor lock-in — everything is markdown and Node.js scripts.
+      - generic [ref=e119]:
+        - heading "Why This Matters" [level=2] [ref=e120]
+        - paragraph [ref=e121]: AI agents are powerful but stateless. Each starts fresh. By building unified memory infrastructure, you keep context alive across tools, sessions, and projects. Rules compound. Knowledge grows. Your AI assistants become smarter and more coherent over time — because they remember.
+    - generic [ref=e123]:
+      - generic [ref=e124]: © 2026 Rakshit Raj.
+      - link "Crafted by yours truly" [ref=e125] [cursor=pointer]:
+        - /url: /humans.txt
